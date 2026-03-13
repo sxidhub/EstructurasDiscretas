@@ -79,7 +79,7 @@
         .portada {
             width: 100%;
             height: 200px;
-            background-color: #ddd; /* Color temporal si no hay foto */
+            background-color: #ddd; 
             object-fit: contain;
             border-bottom: 2px solid var(--oro-unam);
         }
@@ -157,11 +157,10 @@
 
     <script>
         // 1. EL "DICCIONARIO" DE MAPAS
-        // Aquí guardas los links una sola vez. Si un link cambia, lo cambias aquí y se actualiza en todos los libros.
         const linksBibliotecas = {
             "Principal Ing.": "https://maps.app.goo.gl/uSMvpeLRXJHyXyTZA", 
             "Anexo Ing.": "https://maps.app.goo.gl/qgWfHg4nMHsAT3DW9",
-            "Posgrado Ing.": "https://maps.app.goo.gl/vzRC4XNbwpgRKnHZA"
+            "Posgrado Ing.": "https://maps.app.goo.gl/vzRC4XNbwpgRKnHZA",
             "Biblioteca Central": "https://maps.app.goo.gl/gv5as81bEeLay2Ca6", 
             "Faq. Quimica": "https://maps.app.goo.gl/fjoeFiKAVqFYhR3Z9", 
             "Faq. Ciencias": "https://maps.app.goo.gl/xyAJwin7kYEfxXX19", 
@@ -174,56 +173,130 @@
             "Ctro. Ciencias Mamemáticas": "https://maps.app.goo.gl/7VosHzhto9WrCbSK7",
             "CFATA": "https://maps.app.goo.gl/VxANSbT9wM7waoRJ8",
             "elibrounam": "https://elibrunam.dgb.unam.mx:8443/F?func=find-b-0&local_base=LIBBIDI"
-        
         };
 
-        // 2. TU BASE DE DATOS DE LIBROS (El arreglo)
-        // Aquí solo pones la información pura. Fíjate cómo "ubicaciones" es solo una lista de palabras.
+        // 2. BASE DE DATOS DE LIBROS EXTRAÍDA DE TUS APUNTES
         const baseDeDatosLibros = [
+            {
+                titulo: "Logic and discrete mathematics",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Logic+Math",
+                ubicaciones: ["Faq. Contaduria"],
+                extra: ""
+            },
+            {
+                titulo: "Logic and discrete mathematics: computer science perspective",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Computer+Perspective",
+                ubicaciones: ["Faq. Ciencias", "Principal Ing.", "Anexo Ing."],
+                extra: ""
+            },
+            {
+                titulo: "Discrete Mathematics",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Discrete+Mathematics",
+                ubicaciones: ["Principal Ing.", "Anexo Ing.", "Faq. Economia", "Biblioteca Central", "Faq. Contaduria", "Faq. Quimica", "Faq. Ciencias"],
+                extra: ""
+            },
+            {
+                titulo: "Algorithms: Sequential, Parallel and Distributed",
+                autor: "BERMAN, Kenneth A.",
+                temas: "4, 5",
+                imagen: "https://via.placeholder.com/300x200?text=Algorithms",
+                ubicaciones: ["Principal Ing."],
+                extra: ""
+            },
             {
                 titulo: "Discrete Mathematical Structures",
                 autor: "KOLMAN, Bernard",
                 temas: "Todos",
-                imagen: "https://via.placeholder.com/300x200?text=Kolman",
-                ubicaciones: ["Principal", "Anexo"],
-                extra: "Biblioteca Central, Fac. Química"
+                imagen: "https://via.placeholder.com/300x200?text=Discrete+Structures",
+                ubicaciones: ["Biblioteca Central", "Principal Ing.", "Anexo Ing.", "Faq. Quimica"],
+                extra: ""
             },
             {
-                titulo: "Algorithms: Sequential, Parallel...",
-                autor: "BERMAN, Kenneth A.",
-                temas: "4, 5",
-                imagen: "https://via.placeholder.com/300x200?text=Berman",
-                ubicaciones: ["Principal", "Anexo"],
-                extra: "" // Si no hay extra, lo dejas vacío
+                titulo: "Elements of discrete mathematics Español",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Elements",
+                ubicaciones: ["Biblioteca Central", "Faq. Contaduria", "Posgrado Ing.", "Anexo Ing.", "Principal Ing.", "Int. Matematicas", "Faq. Ciencias"],
+                extra: ""
+            },
+            {
+                titulo: "Discrete mathematics and its applications",
+                autor: "ROSEN, Kenneth H.",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Rosen",
+                ubicaciones: ["Ctro. Ciencias Genómicas", "Faq. Economia", "CFATA", "Faq. Ciencias", "Posgrado Ing.", "Principal Ing.", "Anexo Ing.", "Ctro. Ciencias Mamemáticas"],
+                extra: ""
+            },
+            {
+                titulo: "Matemáticas discretas con aplicación a las ciencias de la computación",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Aplicacion+Computacion",
+                ubicaciones: ["Int. Matematicas", "Faq. Contaduria", "Faq. Ciencias", "Principal Ing.", "Anexo Ing.", "Inst. Inv. Económicas"],
+                extra: ""
+            },
+            {
+                titulo: "Discrete mathematics with graph theory and combinatorics",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Graph+Theory",
+                ubicaciones: ["Principal Ing.", "Anexo Ing.", "Biblioteca Central", "Faq. Ciencias"],
+                extra: ""
+            },
+            {
+                titulo: "Introductory discrete mathematics",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Introductory",
+                ubicaciones: ["Principal Ing.", "Anexo Ing.", "Ctro. Ciencias Genómicas", "Faq. Ciencias", "Inst. Inv. Materiales", "Int. Matematicas", "Ctro. Ciencias Mamemáticas"],
+                extra: ""
+            },
+            {
+                titulo: "Matematica discreta",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Matematica+Discreta",
+                ubicaciones: ["Biblioteca Central", "Anexo Ing."],
+                extra: ""
             },
             {
                 titulo: "Discrete mathematics: elementary and beyond",
                 autor: "LOVASZ, Laszlo",
                 temas: "1, 2, 3, 4",
                 imagen: "https://via.placeholder.com/300x200?text=Lovasz",
-                ubicaciones: ["Anexo"], // Este solo está en el Anexo
-                extra: "Recurso en línea en elibrounam, Inst. Matemáticas, C. Física Aplic."
+                ubicaciones: ["elibrounam", "CFATA", "Int. Matematicas", "Anexo Ing."],
+                extra: ""
+            },
+            {
+                titulo: "Matematicas discretas",
+                autor: "Autor no especificado",
+                temas: "Todos",
+                imagen: "https://via.placeholder.com/300x200?text=Matematicas+Discretas",
+                ubicaciones: ["Posgrado Ing.", "Anexo Ing."],
+                extra: ""
             }
-            // Puedes agregar todos los demás libros separándolos con comas...
         ];
 
         // 3. LA LÓGICA QUE CONSTRUYE EL HTML AUTOMÁTICAMENTE
         const contenedor = document.getElementById('contenedorLibros');
 
         function renderizarLibros() {
-            contenedor.innerHTML = ""; // Limpiamos el contenedor
+            contenedor.innerHTML = ""; 
             
             baseDeDatosLibros.forEach(libro => {
-                // Generamos las etiquetas de ubicación leyendo el diccionario
                 let htmlUbicaciones = libro.ubicaciones.map(ubi => {
-                    let link = linksBibliotecas[ubi] || "#"; // Busca el link, si no existe pone "#"
+                    let link = linksBibliotecas[ubi] || "#"; 
                     return `<span class="tag-biblioteca"><a href="${link}" target="_blank">[${ubi}]</a></span>`;
                 }).join(" ");
 
-                // Agregamos el texto extra solo si existe
                 let htmlExtra = libro.extra !== "" ? `<br><small><i>Extra: ${libro.extra}</i></small>` : "";
 
-                // Plantilla HTML del libro
                 let tarjetaHTML = `
                     <article class="tarjeta-libro">
                         <img src="${libro.imagen}" alt="Portada" class="portada">
@@ -241,12 +314,10 @@
                     </article>
                 `;
                 
-                // Inyectamos la tarjeta en la página
                 contenedor.innerHTML += tarjetaHTML;
             });
         }
 
-        // Ejecutamos la función al cargar la página
         renderizarLibros();
 
         // 4. LÓGICA DE LA BARRA DE BÚSQUEDA
