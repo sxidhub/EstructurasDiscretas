@@ -1,11 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ED</title>
+    <title>Catálogo - Estructuras Discretas</title>
+    <style>
+        /* CSS: Diseño y Colores (Azul y Oro UNAM) */
+        :root {
+            --azul-unam: #002B5C;
+            --oro-unam: #D4AF37;
+            --fondo: #f4f7f6;
+            --texto: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--azul-unam);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--oro-unam);
+        }
+
+        .search-container {
+            margin-top: 15px;
+        }
+
+        #searchBar {
+            padding: 10px 15px;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid var(--oro-unam);
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .info-nota {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Grid para las tarjetas de los libros */
+        .grid-libros {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tarjeta-libro {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta-libro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .portada {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd; /* Color temporal si no hay foto */
+            object-fit: contain;
+            border-bottom: 2px solid var(--oro-unam);
+        }
+
+        .contenido-tarjeta {
+            padding: 15px;
+            flex-grow: 1;
+        }
+
+        .titulo-libro {
+            color: var(--azul-unam);
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        .autor {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .etiqueta-temas {
+            display: inline-block;
+            background-color: var(--oro-unam);
+            color: var(--azul-unam);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .ubicaciones {
+            font-size: 0.9em;
+        }
+
+        .ubicaciones a {
+            color: var(--azul-unam);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .ubicaciones a:hover {
+            text-decoration: underline;
+        }
+
+        .tag-biblioteca {
+            display: inline-block;
+            border: 1px solid var(--azul-unam);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin: 2px 0;
+            font-size: 0.85em;
+        }
+    </style>
 </head>
 <body>
-    <p>Hola aki va todo</p>
+
+    <header>
+        <h1>Bibliografía: Estructuras Discretas</h1>
+        <p>Fuente de consulta digital - Semestre 2026-2</p>
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Buscar por título, autor o tema...">
+        </div>
+    </header>
+
+    <div class="info-nota">
+        <strong>Nota de Ubicaciones:</strong> 
+        Principal = Biblioteca "Mtro. Enrique Rivero Borrell" | 
+        Anexo = Biblioteca "Ing. Antonio Dovalí Jaime".
+    </div>
+
+    <main class="grid-libros" id="contenedorLibros">
+        
+        <article class="tarjeta-libro">
+            <img src="https://via.placeholder.com/300x200?text=Portada+Kolman" alt="Portada" class="portada">
+            <div class="contenido-tarjeta">
+                <h2 class="titulo-libro">Discrete Mathematical Structures</h2>
+                <p class="autor">KOLMAN, Bernard</p>
+                <div class="etiqueta-temas">Temas: Todos</div>
+                
+                <div class="ubicaciones">
+                    <p><strong>Ubicación Física:</strong></p>
+                    <span class="tag-biblioteca">
+                        <a href="https://maps.app.goo.gl/TU_LINK_A_PRINCIPAL" target="_blank">[Principal]</a>
+                    </span>
+                    <span class="tag-biblioteca">
+                        <a href="https://maps.app.goo.gl/TU_LINK_A_ANEXO" target="_blank">[Anexo]</a>
+                    </span>
+                    <br>
+                    <small><i>Extra: Biblioteca Central, Fac. Química</i></small>
+                </div>
+            </div>
+        </article>
+
+        <article class="tarjeta-libro">
+            <img src="https://via.placeholder.com/300x200?text=Portada+Berman" alt="Portada" class="portada">
+            <div class="contenido-tarjeta">
+                <h2 class="titulo-libro">Algorithms: Sequential, Parallel...</h2>
+                <p class="autor">BERMAN, Kenneth A.</p>
+                <div class="etiqueta-temas">Temas: 4, 5</div>
+                
+                <div class="ubicaciones">
+                    <p><strong>Ubicación Física:</strong></p>
+                    <span class="tag-biblioteca">
+                        <a href="https://maps.app.goo.gl/TU_LINK_A_PRINCIPAL" target="_blank">[Principal]</a>
+                    </span>
+                    <span class="tag-biblioteca">
+                        <a href="https://maps.app.goo.gl/TU_LINK_A_ANEXO" target="_blank">[Anexo]</a>
+                    </span>
+                </div>
+            </div>
+        </article>
+
+        </main>
+
+    <script>
+        // JavaScript: Lógica de la barra de búsqueda
+        document.getElementById('searchBar').addEventListener('keyup', function(e) {
+            const termino = e.target.value.toLowerCase();
+            const tarjetas = document.getElementsByClassName('tarjeta-libro');
+
+            Array.from(tarjetas).forEach(function(tarjeta) {
+                // Busca el texto completo dentro de la tarjeta
+                const textoTarjeta = tarjeta.innerText.toLowerCase();
+                
+                if(textoTarjeta.indexOf(termino) !== -1) {
+                    tarjeta.style.display = 'flex'; // Muestra si coincide
+                } else {
+                    tarjeta.style.display = 'none'; // Oculta si no coincide
+                }
+            });
+        });
+    </script>
 </body>
 </html>
