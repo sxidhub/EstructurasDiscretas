@@ -176,21 +176,14 @@
         };
 
         // 2. BASE DE DATOS DE LIBROS ACTUALIZADA CON AUTORES Y TEMAS OFICIALES
-        const baseDeDatosLibros = [
+const baseDeDatosLibros = [
+            // BIBLIOGRAFÍA BÁSICA (8 libros)
             {
-                titulo: "Logic and discrete mathematics",
+                titulo: "Matemática discreta y lógica", // Fusionado con la versión "computer science perspective"
                 autor: "GRASSMANN, Winfried K., TREMBLAY, J. P.",
                 temas: "Todos",
                 imagen: "https://via.placeholder.com/300x200?text=Grassmann",
-                ubicaciones: ["Faq. Contaduria"],
-                extra: ""
-            },
-            {
-                titulo: "Logic and discrete mathematics: computer science perspective",
-                autor: "GRASSMANN, Winfried K., TREMBLAY, J. P.",
-                temas: "Todos",
-                imagen: "https://via.placeholder.com/300x200?text=Grassmann+Perspective",
-                ubicaciones: ["Faq. Ciencias", "Principal Ing.", "Anexo Ing."],
+                ubicaciones: ["Faq. Contaduria", "Faq. Ciencias", "Principal Ing.", "Anexo Ing."],
                 extra: ""
             },
             {
@@ -202,7 +195,7 @@
                 extra: ""
             },
             {
-                titulo: "Algorithms: Sequential, Parallel and Distributed",
+                titulo: "Algorithms: Sequential, Parallel, and Distributed",
                 autor: "BERMAN, Kenneth A., PAUL, Jerome L.",
                 temas: "4, 5",
                 imagen: "https://via.placeholder.com/300x200?text=Berman+Paul",
@@ -218,7 +211,7 @@
                 extra: ""
             },
             {
-                titulo: "Elements of discrete mathematics Español",
+                titulo: "Elementos de matemáticas discretas",
                 autor: "LIU, C. L.",
                 temas: "Todos",
                 imagen: "https://via.placeholder.com/300x200?text=Liu",
@@ -226,7 +219,7 @@
                 extra: ""
             },
             {
-                titulo: "Discrete mathematics and its applications",
+                titulo: "Matemáticas discretas y sus aplicaciones",
                 autor: "ROSEN, Kenneth H.",
                 temas: "Todos",
                 imagen: "https://via.placeholder.com/300x200?text=Rosen",
@@ -242,15 +235,17 @@
                 extra: ""
             },
             {
-                titulo: "Discrete mathematics with graph theory and combinatorics",
+                titulo: "Matemáticas discretas con teoría de gráficas y combinatoria",
                 autor: "VEERARAJAN, T.",
                 temas: "Todos",
                 imagen: "https://via.placeholder.com/300x200?text=Veerarajan",
                 ubicaciones: ["Principal Ing.", "Anexo Ing.", "Biblioteca Central", "Faq. Ciencias"],
                 extra: ""
             },
+            
+            // BIBLIOGRAFÍA COMPLEMENTARIA (5 libros)
             {
-                titulo: "Introductory discrete mathematics",
+                titulo: "Introductory Discrete Mathematics",
                 autor: "BALAKRISHNAN, V. K.",
                 temas: "1, 2, 3, 4",
                 imagen: "https://via.placeholder.com/300x200?text=Balakrishnan",
@@ -258,7 +253,15 @@
                 extra: ""
             },
             {
-                titulo: "Matematica discreta",
+                titulo: "Matemáticas discretas", // Separado de Scheinerman
+                autor: "BOGART, Kenneth P.",
+                temas: "1, 2, 3, 4",
+                imagen: "https://via.placeholder.com/300x200?text=Bogart",
+                ubicaciones: ["Posgrado Ing.", "Anexo Ing."],
+                extra: ""
+            },
+            {
+                titulo: "Matemática discreta",
                 autor: "COMELLAS, Francesc",
                 temas: "1, 2, 3, 4",
                 imagen: "https://via.placeholder.com/300x200?text=Comellas",
@@ -274,10 +277,10 @@
                 extra: ""
             },
             {
-                titulo: "Matematicas discretas",
-                autor: "BOGART, Kenneth P. / SCHEINERMAN, Edward",
+                titulo: "Matemáticas discretas", // Separado de Bogart
+                autor: "SCHEINERMAN, Edward",
                 temas: "1, 2, 3, 4",
-                imagen: "https://via.placeholder.com/300x200?text=Bogart+Scheinerman",
+                imagen: "https://via.placeholder.com/300x200?text=Scheinerman",
                 ubicaciones: ["Posgrado Ing.", "Anexo Ing."],
                 extra: ""
             }
