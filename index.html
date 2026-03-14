@@ -54,7 +54,7 @@
         /* Grid para las tarjetas de los libros */
         .grid-libros {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
             max-width: 1200px;
@@ -78,9 +78,10 @@
 
         .portada {
             width: 100%;
-            height: 200px;
+            height: 350px; /* Subí un poco la altura para que los libros luzcan mejor */
             background-color: #ddd; 
-            object-fit: contain;
+            object-fit: cover; /* <-- EL CAMBIO CLAVE: Hace que llene todo el ancho */
+            object-position: top center; /* Alinea la imagen arriba para que no se corte el título */
             border-bottom: 2px solid var(--oro-unam);
         }
 
@@ -176,10 +177,10 @@
         };
 
         // 2. BASE DE DATOS DE LIBROS ACTUALIZADA CON AUTORES Y TEMAS OFICIALES
-const baseDeDatosLibros = [
+        const baseDeDatosLibros = [
             // BIBLIOGRAFÍA BÁSICA (8 libros)
             {
-                titulo: "Matemática discreta y lógica", // Fusionado con la versión "computer science perspective"
+                titulo: "Matemática discreta y lógica", 
                 autor: "GRASSMANN, Winfried K., TREMBLAY, J. P.",
                 temas: "Todos",
                 imagen: "https://via.placeholder.com/300x200?text=Grassmann",
@@ -238,7 +239,7 @@ const baseDeDatosLibros = [
                 titulo: "Matemáticas discretas con teoría de gráficas y combinatoria",
                 autor: "VEERARAJAN, T.",
                 temas: "Todos",
-                imagen: "https://www.canva.com/design/DAFN0Bdf2b0/nm4yNBc58di59EbfwJWbNA/view?utm_content=DAFN0Bdf2b0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+                imagen: "img/Veerarajan-MD.jpg",
                 ubicaciones: ["Principal Ing.", "Anexo Ing.", "Biblioteca Central", "Faq. Ciencias"],
                 extra: ""
             },
@@ -253,7 +254,7 @@ const baseDeDatosLibros = [
                 extra: ""
             },
             {
-                titulo: "Matemáticas discretas", // Separado de Scheinerman
+                titulo: "Matemáticas discretas", 
                 autor: "BOGART, Kenneth P.",
                 temas: "1, 2, 3, 4",
                 imagen: "https://via.placeholder.com/300x200?text=Bogart",
@@ -277,7 +278,7 @@ const baseDeDatosLibros = [
                 extra: ""
             },
             {
-                titulo: "Matemáticas discretas", // Separado de Bogart
+                titulo: "Matemáticas discretas", 
                 autor: "SCHEINERMAN, Edward",
                 temas: "1, 2, 3, 4",
                 imagen: "https://via.placeholder.com/300x200?text=Scheinerman",
