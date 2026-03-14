@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Estructuras Discretas</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* CSS: Diseño y Colores (Azul y Oro UNAM) */
         :root {
@@ -78,10 +81,10 @@
 
         .portada {
             width: 100%;
-            height: 350px; /* Subí un poco la altura para que los libros luzcan mejor */
+            height: 350px; 
             background-color: #ddd; 
-            object-fit: cover; /* <-- EL CAMBIO CLAVE: Hace que llene todo el ancho */
-            object-position: top center; /* Alinea la imagen arriba para que no se corte el título */
+            object-fit: cover; 
+            object-position: top center; 
             border-bottom: 2px solid var(--oro-unam);
         }
 
@@ -90,10 +93,39 @@
             flex-grow: 1;
         }
 
+        .encabezado-tarjeta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
         .titulo-libro {
             color: var(--azul-unam);
-            margin: 0 0 10px 0;
+            margin: 0;
             font-size: 1.2em;
+        }
+
+        /* ACTUALIZADO: Diseño del botón de descarga con Flexbox para el ícono */
+        .btn-descarga {
+            background-color: var(--oro-unam);
+            color: var(--azul-unam);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: background-color 0.2s, transform 0.2s;
+            display: inline-flex; /* Alinea el ícono y el texto perfectamente */
+            align-items: center;
+            gap: 6px; /* Espacio entre el ícono y la palabra PDF */
+        }
+
+        .btn-descarga:hover {
+            background-color: #e6c147; 
+            transform: scale(1.05);
         }
 
         .autor {
@@ -176,7 +208,6 @@
             "elibrounam": "https://elibrunam.dgb.unam.mx:8443/F?func=find-b-0&local_base=LIBBIDI"
         };
 
-
         const baseDeDatosLibros = [
             // BIBLIOGRAFÍA BÁSICA (8 libros)
             {
@@ -185,7 +216,8 @@
                 temas: "Todos",
                 imagen: "img/Grass-MD.jpg",
                 ubicaciones: ["Faq. Contaduria", "Faq. Ciencias", "Principal Ing.", "Anexo Ing."],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1rZ_lReowTmd_fprKMIWA63vLfOn0MjzK/view?usp=drive_link" 
             },
             {
                 titulo: "Discrete Mathematics",
@@ -193,7 +225,8 @@
                 temas: "Todos",
                 imagen: "img/John-MD.jpg",
                 ubicaciones: ["Principal Ing.", "Anexo Ing.", "Faq. Economia", "Biblioteca Central", "Faq. Contaduria", "Faq. Quimica", "Faq. Ciencias"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/19FEQKUVxu28F4Rm-WwwHiL3c-EWYwIjD/view?usp=drive_link" 
             },
             {
                 titulo: "Algorithms: Sequential, Parallel, and Distributed",
@@ -201,7 +234,8 @@
                 temas: "4, 5",
                 imagen: "img/Kenneth-SPD.jpg",
                 ubicaciones: ["Principal Ing."],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1gmIW-fniIHnleXNpbQROHgvPcfyEYCqE/view?usp=drive_link" 
             },
             {
                 titulo: "Discrete Mathematical Structures",
@@ -209,7 +243,8 @@
                 temas: "Todos",
                 imagen: "img/Kolman-MDS.png",
                 ubicaciones: ["Biblioteca Central", "Principal Ing.", "Anexo Ing.", "Faq. Quimica"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1ne8i-I2DRhNRUgHG1Tw-90SnOMITHppX/view?usp=drive_link"
             },
             {
                 titulo: "Elementos de matemáticas discretas",
@@ -217,7 +252,8 @@
                 temas: "Todos",
                 imagen: "img/Liu-EMD.jpg",
                 ubicaciones: ["Biblioteca Central", "Faq. Contaduria", "Posgrado Ing.", "Anexo Ing.", "Principal Ing.", "Int. Matematicas", "Faq. Ciencias"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1lBEv9w70J3rz7XeCRoJchkUw5_gDcBJG/view?usp=drive_link"
             },
             {
                 titulo: "Matemáticas discretas y sus aplicaciones",
@@ -225,7 +261,8 @@
                 temas: "Todos",
                 imagen: "img/Kenneth-MDyA.jpg",
                 ubicaciones: ["Ctro. Ciencias Genómicas", "Faq. Economia", "CFATA", "Faq. Ciencias", "Posgrado Ing.", "Principal Ing.", "Anexo Ing.", "Ctro. Ciencias Mamemáticas"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1QCHaiUHjj19Hrh3Aw5QnSUh-anl9ACm0/view?usp=drive_link"
             },
             {
                 titulo: "Matemáticas discretas con aplicación a las ciencias de la computación",
@@ -233,7 +270,8 @@
                 temas: "Todos",
                 imagen: "img/Tremblay_MDCACC.jpg",
                 ubicaciones: ["Int. Matematicas", "Faq. Contaduria", "Faq. Ciencias", "Principal Ing.", "Anexo Ing.", "Inst. Inv. Económicas"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1YqmxiVBMcbgePu5KqtUAzjtC6ytkHEV7/view?usp=drive_link"
             },
             {
                 titulo: "Matemáticas discretas con teoría de gráficas y combinatoria",
@@ -241,7 +279,8 @@
                 temas: "Todos",
                 imagen: "img/Veerarajan-MD.jpg",
                 ubicaciones: ["Principal Ing.", "Anexo Ing.", "Biblioteca Central", "Faq. Ciencias"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1NdkiBnKpoEMpMwXaKlvD2pazCeewKzja/view?usp=drive_link"
             },
             
             // BIBLIOGRAFÍA COMPLEMENTARIA (5 libros)
@@ -251,7 +290,8 @@
                 temas: "1, 2, 3, 4",
                 imagen: "img/Bala-IMD.jpg",
                 ubicaciones: ["Principal Ing.", "Anexo Ing.", "Ctro. Ciencias Genómicas", "Faq. Ciencias", "Inst. Inv. Materiales", "Int. Matematicas", "Ctro. Ciencias Mamemáticas"],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1oU20lziAQJJWj9y7M6-Ezwi7kD2E0JwR/view?usp=drive_link"
             },
             {
                 titulo: "Matemáticas discretas", 
@@ -259,7 +299,8 @@
                 temas: "1, 2, 3, 4",
                 imagen: "img/Kenneth-MD.jpg",
                 ubicaciones: ["Posgrado Ing.", "Anexo Ing."],
-                extra: ""
+                extra: "",
+                archivo: ""
             },
             {
                 titulo: "Matemática discreta",
@@ -267,7 +308,8 @@
                 temas: "1, 2, 3, 4",
                 imagen: "img/Comellas-MD.jpg",
                 ubicaciones: ["Biblioteca Central", "Anexo Ing."],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1TezdXqhnZ6Qv2dpRNnjRkfNfi2MA3oqh/view?usp=drive_link"
             },
             {
                 titulo: "Discrete mathematics: elementary and beyond",
@@ -275,7 +317,8 @@
                 temas: "1, 2, 3, 4",
                 imagen: "img/Lovas-MDEaB.png",
                 ubicaciones: ["CFATA", "Int. Matematicas", "Anexo Ing."],
-                extra: ""
+                extra: "",
+                archivo: "https://drive.google.com/file/d/1UTRD-26jClznpbaFa2PFw05VSZ_2WRL6/view?usp=drive_link"
             },
             {
                 titulo: "Matemáticas discretas", 
@@ -283,7 +326,8 @@
                 temas: "1, 2, 3, 4",
                 imagen: "img/Edward-MD.jpg",
                 ubicaciones: ["Posgrado Ing.", "Anexo Ing."],
-                extra: ""
+                extra: "",
+                archivo: ""
             }
         ];
 
@@ -300,12 +344,18 @@
                 }).join(" ");
 
                 let htmlExtra = libro.extra !== "" ? `<br><small><i>Extra: ${libro.extra}</i></small>` : "";
+                
+                // ACTUALIZADO: Cambiamos el emoji por la etiqueta de FontAwesome 
+let htmlBotonDescarga = libro.archivo ? `<a href="${libro.archivo}" target="_blank" rel="noopener noreferrer" class="btn-descarga" title="Ver y Descargar PDF"><i class="fa-solid fa-file-pdf"></i></a>` : "";
 
                 let tarjetaHTML = `
                     <article class="tarjeta-libro">
                         <img src="${libro.imagen}" alt="Portada" class="portada">
                         <div class="contenido-tarjeta">
-                            <h2 class="titulo-libro">${libro.titulo}</h2>
+                            <div class="encabezado-tarjeta">
+                                <h2 class="titulo-libro">${libro.titulo}</h2>
+                                ${htmlBotonDescarga}
+                            </div>
                             <p class="autor">${libro.autor}</p>
                             <div class="etiqueta-temas">Temas: ${libro.temas}</div>
                             
