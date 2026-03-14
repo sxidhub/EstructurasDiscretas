@@ -27,9 +27,61 @@
         header {
             background-color: var(--azul-unam);
             color: white;
-            padding: 2rem 1rem;
+            padding: 1rem;
             text-align: center;
             border-bottom: 5px solid var(--oro-unam);
+        }
+        /* NUEVO: Barra superior para integrantes y botón de resumen */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            margin-bottom: 10px; /* Separa la barra del título principal */
+        }
+
+        header h1 {
+            margin: 0 0 5px 0; 
+            font-size: 1.8em;
+        }
+        header p {
+            margin: 0 0 15px 0;
+            font-size: 0.95em;
+        }
+
+        .integrantes {
+            font-size: 0.9em;
+            color: #e0e0e0; /* Un gris muy clarito para que contraste bien con el azul oscuro */
+            text-align: left;
+            line-height: 1.4; /* Da un poco de respiro entre cada nombre */
+        }
+
+        .integrantes strong {
+            color: var(--oro-unam); /* Destaca la palabra "Equipo" con oro */
+            display: block; /* Pone el título arriba de los nombres */
+            margin-bottom: 5px;
+        }
+
+        /* Botón de descarga para el resumen (Estilo diferente al de los libros) */
+        .btn-resumen {
+            background-color: transparent;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid var(--oro-unam);
+            border-radius: 20px; /* Bordes más redondeados para diferenciarlo */
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-resumen:hover {
+            background-color: var(--oro-unam);
+            color: var(--azul-unam);
+            transform: translateY(-2px); /* Pequeño salto al pasar el mouse */
         }
 
         .search-container {
@@ -172,6 +224,20 @@
 <body>
 
     <header>
+        <div class="top-bar">
+            <div class="integrantes">
+                <strong>Integrantes del Equipo:</strong>
+                Correa Sam Said NL: 06<br>
+                Navarro Rodríguez Jorge Ariel NL: 24<br>
+                Prado Garcia Juan David NL: 27<br>
+                
+            </div>
+            
+            <a href="Resumen_ED.pdf" download class="btn-resumen" title="Descargar resumen del proyecto">
+                <i class="fa-solid fa-download"></i> Descargar Resumen
+            </a>
+        </div>
+
         <h1>Bibliografía: Estructuras Discretas</h1>
         <p>Fuente de consulta digital - Semestre 2026-2</p>
         <div class="search-container">
