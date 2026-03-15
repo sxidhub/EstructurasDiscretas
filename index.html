@@ -49,6 +49,14 @@
             font-size: 0.95em;
         }
 
+
+        .botones-header {
+            display: flex;
+            flex-direction: column; /* Apila un botón sobre otro */
+            gap: 10px; /* Espacio entre los botones */
+            align-items: flex-end; /* Alinea los botones a la derecha */
+        }
+
         .integrantes {
             font-size: 0.9em;
             color: #e0e0e0; /* Un gris muy clarito para que contraste bien con el azul oscuro */
@@ -230,12 +238,17 @@
                 Correa Sam Said NL: 06<br>
                 Navarro Rodríguez Jorge Ariel NL: 24<br>
                 Prado Garcia Juan David NL: 27<br>
-                
             </div>
             
-            <a href="Resumen_ED.pdf" download class="btn-resumen" title="Descargar resumen del proyecto">
-                <i class="fa-solid fa-download"></i> Descargar Resumen
-            </a>
+            <div class="botones-header">
+                <a href="Resumen_ED.pdf" download class="btn-resumen" title="Descargar resumen del proyecto">
+                    <i class="fa-solid fa-download"></i> Descargar Resumen
+                </a>
+                
+                <a href="https://drive.google.com/drive/folders/1BQvtk-4YvtFJckR5RZt1kxCIwx87Pq11" target="_blank" rel="noopener noreferrer" class="btn-resumen" title="Ir al Drive con los libros">
+                    <i class="fa-brands fa-google-drive"></i> Link libros
+                </a>
+            </div>
         </div>
 
         <h1>Bibliografía: Estructuras Discretas</h1>
